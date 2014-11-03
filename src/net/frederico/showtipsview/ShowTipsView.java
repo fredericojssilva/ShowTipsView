@@ -11,10 +11,8 @@ import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
-import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -123,6 +121,7 @@ public class ShowTipsView extends RelativeLayout {
 			circleline.setColor(circleColor);
 		else
 			circleline.setColor(Color.RED);
+		circleline.setAntiAlias(true);
 		circleline.setStrokeWidth(3);
 		canvas.drawCircle(x, y, radius, circleline);
 	}
