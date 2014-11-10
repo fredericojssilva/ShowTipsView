@@ -3,7 +3,7 @@ ShowTipsView
 
 ShowTipsView let you highligth specific points of interest of your app.
 
-<a href="" target="_blank"><img src="https://github.com/amlcurran/ShowcaseView/raw/master/sample.png"/></a>
+<a href="" target="_blank"><img src="https://github.com/fredericojssilva/ShowTipsView/blob/master/sample.png"/></a>
 
 Usage
 ====
