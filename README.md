@@ -27,7 +27,25 @@ Customization
 By default the circle will adjust to the passed view, if you want a custom radius and position use: 
 
     setTarget(View v, int x, int y, int radius)
+    
+There is a listener for the "Got it" button. You can use it for example to create consecutive tips, just set the callback and create a new ShowTip, like this:
 
+    showtips.setCallback(new ShowTipsInterface(){
+	    @Override
+	    public void gotItClicked() {
+	    //Lunch new showtip
+	    }
+    });
+    
+To only display the tip one time just call displayOneTime(int showtipId) on the Builder. 
+
+<u>showtipId</u> is a unique id for that tip.
+
+
+## License
+Copyright (c) 2014 Frederico Silva
+
+Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 	
 
