@@ -92,4 +92,9 @@ public class ShowTipsBuilder {
 		showtipsView.setCircleColor(color);
 		return this;
 	}
+
+	public ShowTipsBuilder setButtonText(String text) {
+		this.showtipsView.setButtonText(text);
+		return this;
+	}
 }
