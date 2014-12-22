@@ -259,7 +259,7 @@ public class ShowTipsView extends RelativeLayout {
 		/*
 		 * Close button
 		 */
-		btn_close = new Button(getContext());
+		Button btn_close = new Button(getContext());
 		btn_close.setId(4375);
 		btn_close.setText(getButtonText());
 		btn_close.setTextColor(Color.WHITE);
