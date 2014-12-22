@@ -32,7 +32,7 @@ public class ShowTipsView extends RelativeLayout {
 	private Point showhintPoints;
 	private int radius = 0;
 
-	private String title, description;
+	private String title, description, button_text;
 	private boolean custom, displayOneTime;
 	private int displayOneTimeID = 0;
 	private int delay = 0;
@@ -259,9 +259,9 @@ public class ShowTipsView extends RelativeLayout {
 		/*
 		 * Close button
 		 */
-		Button btn_close = new Button(getContext());
+		btn_close = new Button(getContext());
 		btn_close.setId(4375);
-		btn_close.setText("Got it");
+		btn_close.setText(getButtonText());
 		btn_close.setTextColor(Color.WHITE);
 		btn_close.setTextSize(17);
 		btn_close.setGravity(Gravity.CENTER);
@@ -289,6 +289,14 @@ public class ShowTipsView extends RelativeLayout {
 		});
 		this.addView(btn_close);
 
+	}
+	
+	public void setButtonText(String text) {
+		this.button_text = text;
+	}
+
+	public String getButtonText() {
+		return button_text;
 	}
 
 	public void setTarget(View v) {
