@@ -45,6 +45,14 @@ public class ShowTipsView extends RelativeLayout {
 	private int title_color, description_color, background_color, circleColor;
 
 	private StoreUtils showTipsStore;
+	
+	private Bitmap bitmap;
+	private Canvas temp;
+	private Paint paint;
+	private Paint bitmapPaint;
+	private Paint circleline;
+	private Paint transparentPaint;
+	private PorterDuffXfermode porterDuffXfermode;
 
 	public ShowTipsView(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
@@ -76,6 +84,12 @@ public class ShowTipsView extends RelativeLayout {
 		});
 
 		showTipsStore = new StoreUtils(getContext());
+		
+		paint = new Paint();
+		bitmapPaint = new Paint();
+		circleline = new Paint();
+		transparentPaint = new Paint();
+		porterDuffXfermode = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
 	}
 
 	@Override
@@ -86,7 +100,6 @@ public class ShowTipsView extends RelativeLayout {
 		screenY = h;
 	}
 
-	@SuppressLint("DrawAllocation")
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
@@ -94,33 +107,39 @@ public class ShowTipsView extends RelativeLayout {
 		/*
 		 * Draw circle and transparency background
 		 */
-
-		Bitmap bitmap = Bitmap.createBitmap(canvas.getWidth(), canvas.getHeight(), Bitmap.Config.ARGB_8888);
-		Canvas temp = new Canvas(bitmap);
-		Paint paint = new Paint();
+		
+		/* 
+		 * Since bitmap needs the canva's size, it wont be load at init() 
+		 * To prevent the DrawAllocation issue on low memory devices, the bitmap will be instantiate only when its null
+		 */
+		if (bitmap == null) {
+			bitmap = Bitmap.createBitmap(canvas.getWidth(), canvas.getHeight(), Bitmap.Config.ARGB_8888);
+			temp = new Canvas(bitmap);
+		}
+		
 		if (background_color != 0)
 			paint.setColor(background_color);
 		else
 			paint.setColor(Color.parseColor("#000000"));
+		
 		paint.setAlpha(220);
 		temp.drawRect(0, 0, temp.getWidth(), temp.getHeight(), paint);
 
-		Paint transparentPaint = new Paint();
 		transparentPaint.setColor(getResources().getColor(android.R.color.transparent));
-		transparentPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+		transparentPaint.setXfermode(porterDuffXfermode);
 
 		int x = showhintPoints.x;
 		int y = showhintPoints.y;
 		temp.drawCircle(x, y, radius, transparentPaint);
 
-		canvas.drawBitmap(bitmap, 0, 0, new Paint());
+		canvas.drawBitmap(bitmap, 0, 0, bitmapPaint);
 
-		Paint circleline = new Paint();
 		circleline.setStyle(Paint.Style.STROKE);
 		if (circleColor != 0)
 			circleline.setColor(circleColor);
 		else
 			circleline.setColor(Color.RED);
+		
 		circleline.setAntiAlias(true);
 		circleline.setStrokeWidth(3);
 		canvas.drawCircle(x, y, radius, circleline);
