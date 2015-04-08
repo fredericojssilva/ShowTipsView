@@ -43,6 +43,11 @@ To only display the tip one time just call displayOneTime(int showtipId) on the 
 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-ShowTipsView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1132)
 
+##Download
+**Gradle:**
+```
+compile 'net.fredericosilva:showTipsView:1.0.1'
+```
 ## License
 Copyright (c) 2014 Frederico Silva
 
