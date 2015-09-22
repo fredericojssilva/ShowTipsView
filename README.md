@@ -46,7 +46,7 @@ To only display the tip one time just call displayOneTime(int showtipId) on the 
 ##Download
 **Gradle:**
 ```
-compile 'net.fredericosilva:showTipsView:1.0.1'
+compile 'net.fredericosilva:showTipsView:1.0.2'
 ```
 ## License
 Copyright (c) 2014 Frederico Silva
