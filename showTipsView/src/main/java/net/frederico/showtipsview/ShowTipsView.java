@@ -44,6 +44,8 @@ public class ShowTipsView extends RelativeLayout {
 
 	private int title_color, description_color, background_color, circleColor;
 
+	private int background_alpha = 220;
+
 	private StoreUtils showTipsStore;
 	
 	private Bitmap bitmap;
@@ -122,7 +124,7 @@ public class ShowTipsView extends RelativeLayout {
 		else
 			paint.setColor(Color.parseColor("#000000"));
 		
-		paint.setAlpha(220);
+		paint.setAlpha(background_alpha);
 		temp.drawRect(0, 0, temp.getWidth(), temp.getHeight(), paint);
 
 		transparentPaint.setColor(getResources().getColor(android.R.color.transparent));
@@ -290,7 +292,7 @@ public class ShowTipsView extends RelativeLayout {
 		params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 		params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 		params.rightMargin = 50;
-		params.bottomMargin = 70;
+		params.bottomMargin = 100;
 
 		btn_close.setLayoutParams(params);
 		btn_close.setOnClickListener(new OnClickListener() {
@@ -420,4 +422,17 @@ public class ShowTipsView extends RelativeLayout {
 		this.circleColor = circleColor;
 	}
 
+	public int getBackground_alpha() {
+		return background_alpha;
+	}
+
+	public void setBackground_alpha(int background_alpha) {
+		if(background_alpha>255)
+			this.background_alpha = 255;
+		else if(background_alpha<0)
+			this.background_alpha = 0;
+		else
+			this.background_alpha = background_alpha;
+
+	}
 }

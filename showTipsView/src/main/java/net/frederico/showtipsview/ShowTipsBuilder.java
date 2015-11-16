@@ -97,4 +97,14 @@ public class ShowTipsBuilder {
 		this.showtipsView.setButtonText(text);
 		return this;
 	}
+
+	/**
+	 * Set transparecy for background layer. 0-255 range
+	 * @param alpha
+	 * @return ShowTipsbuilder
+	 */
+	public ShowTipsBuilder setBackgroundAlpha(int alpha) {
+		this.showtipsView.setBackground_alpha(alpha);
+		return this;
+	}
 }
