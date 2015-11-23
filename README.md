@@ -27,6 +27,10 @@ Customization
     setBackgroundColor(int color)
 	setBackgroundAlpha(int alpha)
     setCircleColor(int color)
+	setCloseButtonColor(int color)
+	setCloseButtonTextColor
+	
+	setButtonBackground(Drawable drawable)
 
 By default the circle will adjust to the passed view, if you want a custom radius and position use: 
 
@@ -50,7 +54,7 @@ To only display the tip one time just call displayOneTime(int showtipId) on the 
 ##Download
 **Gradle:**
 ```
-compile 'net.fredericosilva:showTipsView:1.0.3'
+compile 'net.fredericosilva:showTipsView:1.0.4'
 ```
 ## License
 Copyright (c) 2014 Frederico Silva
