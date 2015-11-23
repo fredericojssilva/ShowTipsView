@@ -1,5 +1,7 @@
 package net.frederico.showtipsview;
+
 import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 
 /**
@@ -95,6 +97,19 @@ public class ShowTipsBuilder {
 
 	public ShowTipsBuilder setButtonText(String text) {
 		this.showtipsView.setButtonText(text);
+		return this;
+	}
+
+	public ShowTipsBuilder setCloseButtonColor(int color){
+		this.showtipsView.setButtonColor(color);
+		return this;
+	}
+	public ShowTipsBuilder setCloseButtonTextColor(int color){
+		this.showtipsView.setButtonTextColor(color);
+		return this;
+	}
+	public ShowTipsBuilder setButtonBackground(Drawable drawable){
+		this.showtipsView.setCloseButtonDrawableBG(drawable);
 		return this;
 	}
 

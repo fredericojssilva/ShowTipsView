@@ -1,7 +1,5 @@
 package net.frederico.showtipsview;
 
-import net.fredericosilva.showtipsview.R;
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -11,6 +9,7 @@ import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -23,6 +22,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import net.fredericosilva.showtipsview.R;
 
 /**
  * @author Frederico Silva (fredericojssilva@gmail.com)
@@ -42,7 +42,8 @@ public class ShowTipsView extends RelativeLayout {
 	private View targetView;
 	private int screenX, screenY;
 
-	private int title_color, description_color, background_color, circleColor;
+	private int title_color, description_color, background_color, circleColor, buttonColor, buttonTextColor;
+	private Drawable closeButtonDrawableBG;
 
 	private int background_alpha = 220;
 
@@ -283,7 +284,17 @@ public class ShowTipsView extends RelativeLayout {
 		Button btn_close = new Button(getContext());
 		btn_close.setId(4375);
 		btn_close.setText(getButtonText());
-		btn_close.setTextColor(Color.WHITE);
+		btn_close.setTextColor(buttonTextColor == 0 ? Color.WHITE : buttonTextColor);
+
+		if(closeButtonDrawableBG != null)
+		{
+			btn_close.setBackgroundDrawable(closeButtonDrawableBG);
+		}
+
+		if(buttonColor != 0){
+			btn_close.getBackground().setColorFilter(buttonColor, PorterDuff.Mode.MULTIPLY);
+		}
+
 		btn_close.setTextSize(17);
 		btn_close.setGravity(Gravity.CENTER);
 
@@ -434,5 +445,29 @@ public class ShowTipsView extends RelativeLayout {
 		else
 			this.background_alpha = background_alpha;
 
+	}
+
+	public int getButtonColor() {
+		return buttonColor;
+	}
+
+	public void setButtonColor(int buttonColor) {
+		this.buttonColor = buttonColor;
+	}
+
+	public int getButtonTextColor() {
+		return buttonTextColor;
+	}
+
+	public void setButtonTextColor(int buttonTextColor) {
+		this.buttonTextColor = buttonTextColor;
+	}
+
+	public Drawable getCloseButtonDrawableBG() {
+		return closeButtonDrawableBG;
+	}
+
+	public void setCloseButtonDrawableBG(Drawable closeButtonDrawableBG) {
+		this.closeButtonDrawableBG = closeButtonDrawableBG;
 	}
 }

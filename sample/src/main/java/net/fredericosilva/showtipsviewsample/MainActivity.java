@@ -1,5 +1,6 @@
 package net.fredericosilva.showtipsviewsample;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import android.support.v7.app.ActionBarActivity;
@@ -24,6 +25,8 @@ public class MainActivity extends ActionBarActivity {
                 .setDescription("This button do nothing very well")
                 .setDelay(1000)
                 .setBackgroundAlpha(128)
+                .setCloseButtonColor(Color.RED)
+                .setCloseButtonTextColor(Color.GREEN)
                 .build();
 
         showtips.show(this);
